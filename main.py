@@ -9,6 +9,8 @@
 import os
 import json
 import mne
+import mne_bids
+import shutil
 
 # Current path
 __location__ = os.path.realpath(
