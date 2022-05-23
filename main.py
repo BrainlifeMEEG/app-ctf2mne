@@ -36,7 +36,7 @@ mne_bids.copyfiles.copyfile_ctf(fname, fname1)
 # COPY THE METADATA CHANNELS.TSV, COORDSYSTEM, ETC ==============================
 
 
-raw = mne.io.read_raw_ctf(fname)
+raw = mne.io.read_raw_ctf(fname1)
 
 # save mne/raw
 raw.save(os.path.join('out_dir','raw.fif'))
