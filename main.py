@@ -22,6 +22,15 @@ with open(__location__+'/config.json') as config_json:
 fname = config['ds']
 
 
+# Rename ds folder so internal files match
+# FIND A TEMPORAL FOLDER (ask soichi)
+# mne_bids.copyfiles.copyfile_ctf(fname, 'meg.ds')
+fname1 = fname[:-6]+'raw_meg.ds'
+if os.path.exists(fname1):
+  shutil.rmtree(fname1)
+mne_bids.copyfiles.copyfile_ctf(fname, fname1)
+
+
 # COPY THE METADATA CHANNELS.TSV, COORDSYSTEM, ETC ==============================
 
 
@@ -30,3 +39,6 @@ raw = mne.io.read_raw_ctf(fname)
 # save mne/raw
 raw.save(os.path.join('out_dir','raw.fif'))
 
+# Remove temporal file
+if os.path.exists(fname1):
+  shutil.rmtree(fname1)
