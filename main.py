@@ -19,7 +19,7 @@ with open(__location__+'/config.json') as config_json:
     config = json.load(config_json)
 
 
-fname = config['ctf']
+fname = config['ds']
 
 
 # COPY THE METADATA CHANNELS.TSV, COORDSYSTEM, ETC ==============================
