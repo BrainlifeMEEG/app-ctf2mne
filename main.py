@@ -44,3 +44,13 @@ raw.save(os.path.join('out_dir','raw.fif'))
 # Remove temporal file
 if os.path.exists(fname1):
   shutil.rmtree(fname1)
+
+# create a product.json file to show info in the process output
+info = raw.info
+dict_json_product = {'brainlife': []}
+
+info = str(info)
+dict_json_product['brainlife'].append({'type': 'info', 'msg': info})
+
+with open('product.json', 'w') as outfile:
+    json.dump(dict_json_product, outfile)
