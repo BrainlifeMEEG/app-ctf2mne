@@ -77,9 +77,10 @@ try:
     raw.save(os.path.join('out_dir', 'raw.fif'), overwrite=True)
 
     # == CREATE PRODUCT JSON ==
-    product_json = create_product_json()
-    add_info_to_product(product_json, f"CTF MEG file converted successfully")
-    add_raw_info_to_product(product_json, raw)
+    product_items = []
+    add_info_to_product(product_items, f"CTF MEG file converted successfully")
+    add_raw_info_to_product(product_items, raw)
+    create_product_json(product_items)
 
 finally:
     # Clean up temporary file
