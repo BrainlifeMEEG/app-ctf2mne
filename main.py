@@ -2,16 +2,23 @@
 Convert CTF MEG files to MNE-Python raw format.
 
 This app converts CTF MEG .ds folder files to MNE-compatible .fif format using
-the mne.io.read_raw_ctf function. It handles temporary file management and 
-generates a report with channel information.
+the mne.io.read_raw_ctf function. It handles temporary file management, detects
+events, identifies and marks bad/flat channels, and generates a QC report with
+channel information and a power spectral density (PSD) plot.
 
 Input:
     - ds: Path to CTF .ds folder
+    - eog: Comma-separated list of EOG channel names (optional)
+    - ecg: Comma-separated list of ECG channel names (optional)
+    - misc: Comma-separated list of miscellaneous channel names (optional)
+    - bads: Comma-separated list of bad channel names to mark (optional)
+    - rm_flat: Whether to automatically detect and mark flat channels (default: True)
 
 Output:
     - out_dir/raw.fif: MNE raw data file
     - out_report/report.html: QC report with channel information
-    - product.json: Metadata with channel info
+    - out_figs/psd.png: Power spectral density plot
+    - product.json: Metadata with channel info, bad channels, and QC messages
 """
 
 # Copyright (c) 2026 brainlife.io
@@ -20,6 +27,8 @@ Output:
 #
 # Authors:
 # - Guiomar Niso (https://github.com/guiomar)
+# - Maximilien Chaumon (https://github.com/dnacombo)
+# - Anandapadmanabhan Unnikrishnan (https://github.com/obVdo)
 
 import sys
 import os
