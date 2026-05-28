@@ -12,6 +12,8 @@
 
 # make output directory
 mkdir -p out_dir
+mkdir -p out_figs
+mkdir -p out_report
 
 #python main.py
 singularity exec docker://brainlife/mne:0.23dev python3 main.py
