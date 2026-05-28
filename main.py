@@ -23,6 +23,7 @@ Output:
 
 import sys
 import os
+
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'brainlife_utils'))
 
 # Standard imports
@@ -39,7 +40,8 @@ from brainlife_utils import (
     ensure_output_dirs,
     create_product_json,
     add_info_to_product,
-    add_raw_info_to_product
+    add_raw_info_to_product,
+    add_image_to_product
 )
 
 # Set up matplotlib for headless execution
