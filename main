@@ -9,11 +9,6 @@
 #
 # Author: Guiomar Niso
 
-# make output directory
-mkdir -p out_dir
-mkdir -p out_figs
-mkdir -p out_report
-
 #python main.py
 singularity exec docker://aunnikri642/app-freesurfer-mne-source-recon python3 main.py
 

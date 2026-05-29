@@ -57,7 +57,7 @@ from brainlife_utils import (
 setup_matplotlib_backend()
 
 # Ensure output directories exist
-ensure_output_dirs('out_dir', 'out_report')
+ensure_output_dirs('out_dir', 'out_figs', 'out_report')
 
 # Load configuration
 config = load_config()
