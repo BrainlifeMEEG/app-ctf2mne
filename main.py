@@ -134,7 +134,7 @@ try:
     report.add_html(title='Channels', html=channel_info_html)
 
     # Save report
-    report.save(os.path.join('out_report', 'report.html'), overwrite=True)
+    report.save(os.path.join('out_report', 'report.html'), overwrite=True, verbose=False)
     
     raw.save(os.path.join('out_dir', 'raw.fif'), overwrite=True)
     
